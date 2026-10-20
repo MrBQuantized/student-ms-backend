@@ -1,0 +1,25 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv/
+.qodo/
+
+# Folders
+.vscode/
+frontend/
+notes/
+
+# Media Folder/Files
+src/static/icons
+src/static/images
+src/static/swagger-ui-bundle
+src/templates/*/
+
+# Allow all templates
+!src/templates/

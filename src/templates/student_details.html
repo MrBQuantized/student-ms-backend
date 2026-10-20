@@ -1,0 +1,61 @@
+{% extends "layout.html" %} {% block title %}Student Details {% endblock title
+    %} {% block content %}
+<section class="student-details-page">
+    <header class="page-header">
+        <div>
+            <a href="/students" class="back-link">←Back to Students</a>
+            <h1 class="page-heading">Student Details</h1>
+            <p class="page-description">View the student's profile and academic information</p>
+        </div>
+        <a href="/students{{ student.id }}/edit" class="btn btn-primary">Edit Student</a>
+    </header>
+    <section class="student-profile">
+        <div class="profile-avatar" aria-hidden="true">{{ student.first_name[0]|upper }}{{ student.last_name[0]|upper }}</div>
+        <div class="profile-heading">
+            <h2>{{ student.first_name }}{{ student.last_name }}</h2>
+            <p class="text-muted">Student ID: {{ student.student_id }}</p>
+        </div>
+    </section>
+    <section class="details-panel">
+        <h2 class="section-heading">Personal Information</h2>
+        <dl class="details-grid">
+            <div class="detail-item">
+                <dt>First Name</dt>
+                <dd>
+                    {{ student.first_name }}
+                </dd>
+            </div>
+            <div class="detail-item">
+                <dt>Last Name</dt>
+                <dd>
+                    {{ student.last_name }}
+                </dd>
+            </div>
+            <div class="detail-item">
+                <dt>Email Address</dt>
+                <dd>
+                    {{ student.email }}
+                </dd>
+            </div>
+            <div class="detail-item">
+                <dt>Gender</dt>
+                <dd>
+                    {{ student.gender.value if student.gender else "—" }}
+                </dd>
+            </div>
+            <div class="detail-item">
+                <dt>Department</dt>
+                <dd>
+                    {{ student.department.name if student.department else "—" }}
+                </dd>
+            </div>
+            <div class="detail-item">
+                <dt>Student ID</dt>
+                <dd>
+                    {{ student.student_id }}
+                </dd>
+            </div>
+        </dl>
+    </section>
+</section>
+{% endblock content %}

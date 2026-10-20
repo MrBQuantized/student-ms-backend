@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+{% block title %}{{ page_title }}{% endblock title %}
+{% block content %}
+    <section class="student-from-page">
+        <header class="page-header">
+            <div>
+                <h1 class="page-heading">{{ page_title }}</h1>
+                <p class="page-description">Enter the student's information.</p>
+            </div>
+            <a href="/students" class="btn btn-outline">Cancel</a>
+        </header>
+        <form action="{{ form_action }}" method="post" class="student-form">
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input id="first_name"
+                       name="first_name"
+                       type="text"
+                       value="{{ student.first_name }}"
+                       required />
+            </div>
+            <div class="form-group">
+                <label for="middle_name">Middle Name</label>
+                <input id="middle_name"
+                       name="middle_name"
+                       type="text"
+                       value="{{ student.middle_name }}"
+                       required />
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input id="last_name"
+                       name="last_name"
+                       type="text"
+                       value="{{ student.last_name }}"
+                       required />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email"
+                       name="email"
+                       type="text"
+                       value="{{ student.email }}"
+                       required />
+            </div>
+            <div class="form-group">
+                <label for="date_of_birth">Date of birth</label>
+                <input id="date_of_birth"
+                       name="date_of_birth"
+                       type="date"
+                       value="{{ student.date_of_birth.isoformat() if student and student.date_of_birth else '—' }}"
+                       required />
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" type="text" required>
+                    <option value="">Select gender</option>
+                    {% for option in gender_options %}
+                        <option value="{{ option.value }}"
+                                {% if student and student.gender == option %}selected{% endif %}>
+                            {{ option.value|title }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="department_id">Department</label>
+                <select id="department_id" name="department_id" type="text" value="" required>
+                    <option value="">Select departments</option>
+                    {% for department in departments %}
+                        <option value="{{ department.id }}"
+                                {% if student and student.department_id == department.id %}selected{% endif %}>
+                            {{ department.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="level">Level</label>
+                <option value="">Select level</option>
+                {% for option in level_options %}
+                    <option value="{{ option }}"
+                            {% if student and student.level == option %}selected{% endif %}>
+                    </option>
+                {% endfor %}
+            </div>
+            {% if not student %}
+                <div class="form-group">
+                    <label for="password">Initial password</label>
+                    <input id="password"
+                           name="password"
+                           type="password"
+                           autocomplete="new-password"
+                           required />
+                </div>
+            {% endif %}
+            <div class="form-group">
+                <a href="/students" class="btn btn-outline">Cancel</a>
+                <button type="submit"
+                        class="btn btn-primary">{{ "Save Changes" if student else "Create Student" }}</button>
+            </div>
+        </form>
+    </section>
+{% endblock content %}

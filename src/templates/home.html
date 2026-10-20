@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+    <section id="home" class="page-section active">
+        <div class="content-grid">
+            <div class="content-main">
+                <div class="card">
+                    <span class="badge">WELCOME</span>
+                    <h1>Welcome to the Student Management System</h1>
+                    <p class="muted">
+                        This is the home page of the Student Management System. Use the
+                        navigation bar to access different sections of the application.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>Quick Overview</h3>
+                    <p class="muted">Manage students, courses, grades, and enrollments from one place.</p>
+                </div>
+            </div>
+        </div>
+        <aside class="content-side">
+            <div class="card">
+                <h4>Quick Links</h4>
+                <ul class="quick-links">
+                    <li><a href="/students">Students</a></li>
+                    <li><a href="/courses">Courses</a></li>
+                    <li><a href="/departments">Departments</a></li>
+                    <li><a href="/grades">Grades</a></li>
+                    <li><a href="/reports">Reports</a></li>
+                </ul>
+            </div>
+        </aside>
+    </section>
+{% endblock %}

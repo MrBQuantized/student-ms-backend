@@ -1,0 +1,181 @@
+/* ===========================================
+   1. LIGHT THEME (DEFAULT) 
+=========================================== */
+:root {
+  color-scheme: light;
+  /* Brand colors */
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-secondary: #475569;
+
+  /* Backgrounds */
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f1f5f9;
+
+  /* Text */
+  --color-text: #0f172a;
+  --color-text-avatar: #f1f5f9;
+  --color-link-hover: #8448d3;
+  --color-text-muted: #64748b;
+
+  /* Borders and status */
+  --color-border: #e2e8f0;
+  --color-danger: #dc2626;
+  --color-success: #16a34a;
+
+  /* Typography */
+  --font-family: Arial, sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
+
+  /* Spacing */
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Shape and elevation */
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+  --shadow-sm: 0 1px 3px rgb(0 0 0 / 10%);
+
+  /* Theme transition */
+  --theme-transition:
+    background-color 0.2s ease, color 02s ease, border-color 0.2s ease;
+  --link-transition: color 0.5s ease;
+}
+
+/* ===========================================
+   2. EXPLICIT DARK THEME (DEFAULT) 
+=========================================== */
+:root[data-theme="dark"] {
+  /* Brand colors */
+  --color-primary: #60a5fa;
+  --color-primary-hover: #93c5fd;
+
+  /* Backgrounds */
+  --color-background: #07141f;
+  --color-surface: #111b29;
+  --color-surface-hover: #334155;
+
+  /* Text */
+  --color-text: #f1f5f9;
+  --color-text-avatar: #0f172a;
+  --color-text-muted: #94a3b8;
+
+  /* Borders and status */
+  --color-border: #334155;
+  --color-danger: #f87171;
+  --color-success: #4ade80;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 3px rgb(0 0 0 / 30%);
+
+  /* Theme Toggle  */
+  .icon-btn .sun {
+    display: none;
+  }
+  .icon-btn .moon {
+    display: block;
+  }
+}
+
+/* ===========================================
+   3. AUTO MODE:  Follow operating system
+=========================================== */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]) {
+    color-scheme: dark;
+    /* Brand colors */
+    --color-primary: #60a5fa;
+    --color-primary-hover: #93c5fd;
+
+    /* Backgrounds */
+    --color-background: #07141f;
+    --color-surface: #111b29;
+    --color-surface-hover: #334155;
+
+    /* Text */
+    --color-text: #f1f5f9;
+    --color-text-avatar: #0f172a;
+    --color-text-muted: #94a3b8;
+
+    /* Borders and status */
+    --color-border: #334155;
+    --color-danger: #f87171;
+    --color-success: #4ade80;
+
+    /* Elevation */
+    --shadow-sm: 0 1px 3px rgb(0 0 0 / 30%);
+  }
+}
+
+/* ===========================================
+   4. GLOBAL RESET  
+=========================================== */
+*,
+*::before *::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+
+  color: var(--color-text);
+  background-color: var(--color-background);
+  transition: var(--theme-transition);
+}
+
+main {
+  background-color: var(--color-surface);
+}
+/* ===========================================
+   5. ELEMENT DEFAULTS
+=========================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  height: 12px;
+  width: 12px;
+}

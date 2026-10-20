@@ -1,0 +1,227 @@
+/* ===============================
+    1. CARDS
+=============================== */
+
+/* User cards */
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 16px 5px 16px 16px;
+  margin: 16px 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+}
+
+.avatar {
+  flex-shrink: 0;
+  font-size: 20px;
+  padding: 10px;
+  border: 1px solid none;
+  border-radius: 50%;
+  /* object-fit: cover; */
+  color: var(--color-text-avatar);
+  background-color: var(--color-primary);
+}
+
+/* .user-name {
+  padding-top: 10px;
+  padding-bottom: 2px;
+} */
+.user-name {
+  flex: 1;
+  margin-right: 5px;
+  font-size: small;
+  border-bottom: 1px solid var(--color-border);
+  font-size: medium;
+  min-width: 0;
+}
+.user-meta {
+  flex: 1;
+  font-size: x-small;
+  font-style: italic;
+  color: var(--color-text-muted);
+  min-width: 0;
+}
+
+/* ===============================
+    2. BUTTONS
+=============================== */
+/* Menu Toggle */
+.menu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+
+  border: none;
+  border-radius: var(--border-radius-lg);
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.menu-btn:hover,
+.sidebar-toggle:hover {
+  border: 1px solid var(--color-border);
+  border-color: var(--color-primary-hover);
+  color: var(--color-primary-hover);
+}
+
+.sidebar-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 16px;
+  margin: 16px 16px;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: none;
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+}
+
+.menu-btn svg,
+.sidebar-toggle svg {
+  display: block;
+  height: 24px;
+  width: 24px;
+}
+
+/* Base Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 16px;
+  min-height: 40px;
+
+  font: inherit;
+  font-size: 14px;
+  line-weight: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Login button */
+.btn-outline {
+  color: var(--color-text);
+  background-color: transparent;
+  border-color: var(---color-border);
+}
+.btn-outline:hover {
+  color: var(--color-primary);
+  background-color: var(--color-surface-hover);
+  border-color: var(---color-primary);
+}
+
+/* SignUp button */
+.btn-primary {
+  color: #fff;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+/* Keyboard accessibility */
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* Prevents buttons from becoming compressed*/
+.topbar-right .btn {
+  flex-shrink: 0;
+}
+
+/* Theme Toggle */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+
+  color: var(--color-text);
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* SVG Icons */
+.icon-btn svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+/* Hover state */
+.icon-btn:hover
+
+/* Theme control */
+.theme-menu button {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+
+  text-align: left;
+  font: inherit;
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.theme-menu button:hover,
+.theme-menu button:focus-visible {
+  background: var(--color-surface-hover);
+}
+
+/* ===============================
+    3. TABLES
+=============================== */
+
+/* ===============================
+    4. FORMS
+=============================== */
+/* ===============================
+    5. MODALS
+=============================== */
