@@ -52,7 +52,7 @@ async def new_student_form(
         {
             "student": None,
             # "form_action": "/students/new",
-            "form_action": "/students/new",
+            "form_action": str(request.url_for("create_student_page")),
             "page_title": "Add Student",
             "departments": departments,
             "gender_options": list(Gender),
@@ -114,7 +114,8 @@ async def edit_student_form(
         "student_form.html",
         {
             "student": student,
-            "form_action": f"/students/{student_id}/edit",
+            # "form_action": f"/students/{student_id}/edit",
+            "form_action": str(request.url_for("update_student")),
             "page_title": "Edit Student",
         },
     )
