@@ -16,9 +16,6 @@ from app import (
     Gender,
     Student,
     StudentCreate,
-    StudentPut,
-    StudentResponse,
-    StudentUpdate,
     get_db,
 )
 from app.core.security import hash_password
@@ -54,6 +51,7 @@ async def new_student_form(
         "student_form.html",
         {
             "student": None,
+            # "form_action": "/students/new",
             "form_action": "/students/new",
             "page_title": "Add Student",
             "departments": departments,
@@ -100,7 +98,7 @@ async def student_details(
 
 # --- GET student/{student_id}/edit ---
 # Fetch the existing student and prefill
-@router.get("/{student_id}", include_in_schema=False)
+@router.get("/{student_id}/edit", include_in_schema=False)
 async def edit_student_form(
     student_id: str, request: Request, db: Annotated[AsyncSession, Depends(get_db)]
 ):
@@ -129,7 +127,7 @@ async def edit_student_form(
 
 # --- POST /students/new ---
 # Process the form and create a student.
-@router.get("/new", include_in_schema=False)
+@router.post("/new", include_in_schema=False)
 async def create_student_page(
     db: Annotated[AsyncSession, Depends(get_db)],
     first_name: str = Form(...),
@@ -169,7 +167,7 @@ async def create_student_page(
 
 # --- POST /students/{student_id}/edit ---
 # Process the form and create a student.
-@router.get("/{student_id}/edit", include_in_schema=False)
+@router.post("/{student_id}/edit", include_in_schema=False)
 async def update_student(
     db: Annotated[AsyncSession, Depends(get_db)],
     student_id: str,
@@ -185,15 +183,15 @@ async def update_student(
 ):
     student = await db.scalar(select(Student).where(Student.student_id == student_id))
 
-    student.first_name = (first_name,)
-    student.middle_name = (middle_name,)
-    student.last_name = (last_name,)
-    student.email = (email,)
-    student.date_of_birth = (date_of_birth,)
-    student.gender = (gender,)
-    student.department_id = (department_id,)
-    student.level = (level,)
-    student.password = (hash_password,)
+    student.first_name = first_name
+    student.middle_name = middle_name
+    student.last_name = last_name
+    student.email = email
+    student.date_of_birth = date_of_birth
+    student.gender = gender
+    student.department_id = department_id
+    student.level = level
+    student.password = hash_password
 
     await db.commit()
 

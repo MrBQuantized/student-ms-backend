@@ -1,7 +1,6 @@
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase
 
-
 DATABASE_URL = "sqlite+aiosqlite:///./students.db"
 
 engine = create_async_engine(
@@ -16,7 +15,7 @@ AsyncSessionLocal = async_sessionmaker(
 )
 
 
-class Base(DeclarativeBase):   # Base = declarative_base() is deprecated.
+class Base(DeclarativeBase):  # Base = declarative_base() is deprecated.
     pass
 
 
